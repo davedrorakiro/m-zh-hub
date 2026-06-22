@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完美体育 · 用简单的方式理解运动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f6f7f9;
+            color: #1e1e2a;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #10101a 0%, #1f2335 100%);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -20%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 30%, rgba(90, 130, 255, 0.04), transparent 70%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            color: #eef0f8;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #9ea8c7;
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+            font-weight: 400;
+        }
+        .hero .tagline span {
+            display: inline-block;
+            border-bottom: 2px solid #4f7aff;
+            padding-bottom: 2px;
+        }
+        /* 浅色正文区 */
+        .wrapper {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+        .intro-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.5rem 2.2rem;
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2.8rem;
+        }
+        .intro-card p {
+            margin-bottom: 1.4rem;
+            font-size: 1.06rem;
+        }
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+        .intro-card .lead {
+            font-size: 1.2rem;
+            font-weight: 460;
+            color: #13131f;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2.2rem 0 1.2rem;
+        }
+        .feature-item {
+            background: #f2f4fa;
+            padding: 1.2rem 1.3rem;
+            border-radius: 20px;
+            transition: background 0.2s;
+            border-left: 4px solid #4f7aff;
+        }
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #1b1c2c;
+        }
+        .feature-item p {
+            font-size: 0.92rem;
+            color: #3d3f50;
+            margin: 0;
+        }
+        .scene-box {
+            background: #eef1f6;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            margin: 2.2rem 0 2rem;
+        }
+        .scene-box h2 {
+            font-size: 1.3rem;
+            font-weight: 520;
+            margin-bottom: 0.6rem;
+            color: #14141f;
+        }
+        .scene-box p {
+            font-size: 1rem;
+            color: #2b2b3c;
+        }
+        .faq-snip {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0 2rem;
+            border: 1px solid #e3e6ed;
+        }
+        .faq-snip h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #252538;
+        }
+        .faq-snip p {
+            font-size: 0.96rem;
+            color: #3d4055;
+        }
+        .closing {
+            margin-top: 2.8rem;
+            text-align: left;
+            font-size: 1rem;
+            color: #2e2e42;
+            border-top: 1px solid #dde1ea;
+            padding-top: 2rem;
+        }
+        .closing a {
+            color: #4f7aff;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .closing a:hover {
+            border-bottom-color: #4f7aff;
+        }
+        .closing .mild {
+            color: #5e6177;
+            font-size: 0.95rem;
+        }
+        a {
+            color: #4f7aff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .tagline {
+                font-size: 1rem;
+            }
+            .wrapper {
+                padding: 2rem 1rem 3rem;
+            }
+            .intro-card {
+                padding: 1.8rem 1.4rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .scene-box {
+                padding: 1.4rem 1.2rem;
+            }
+            .faq-snip {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 5rem 2rem 4rem;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>完美体育</h1>
+        <p class="tagline">你不需要猜测一个网站做什么。<br>你只需要看一眼，然后说：<span>噢，原来是这里。</span></p>
+    </section>
+
+    <!-- 浅色正文区 -->
+    <div class="wrapper">
+
+        <div class="intro-card">
+            <p class="lead">第一次遇到一个运动平台，很多人都会问同一个问题：</p>
+            <p>它到底提供什么？信息？工具？还是社区？其实都不复杂。用一个词概括，<strong>就是让你更顺畅地了解、接触、参与体育相关的事情</strong>。没有弯弯绕绕，也没有故弄玄虚。</p>
+            <p>从最简单的赛事时间表，到不同项目的规则解读，再到一些针对入门者的经验整理——这些内容被放在一起，形成了一个不绕弯子的空间。如果你之前花过不少时间在杂乱的页面里翻找想要的信息，那么这里的结构会让你觉得轻松不少。</p>
+        </div>
+
+        <!-- 特点列表：卡片式 -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>不是所有内容都需要注册</h3>
+                <p>大部分资讯和参考可以直接浏览。偶尔需要互动或者保存偏好的功能，才需要简单登记。</p>
+            </div>
+            <div class="feature-item">
+                <h3>语言平实，不堆术语</h3>
+                <p>无论你刚接触运动还是已有基础，表达方式都尽量自然，不制造距离感。</p>
+            </div>
+            <div class="feature-item">
+                <h3>分类清晰，但不过度细分</h3>
+                <p>常见的项目、联赛、活动都放在明处，不需要多次点击才能找到方向。</p>
+            </div>
+            <div class="feature-item">
+                <h3>界面干净，没有干扰弹窗</h3>
+                <p>内容区域保持稳定，不会突然弹出与当前目标无关的窗口或横幅。</p>
+            </div>
+        </div>
+
+        <!-- 场景 -->
+        <div class="scene-box">
+            <h2>适合什么时候打开？</h2>
+            <p>比如周末下午，想确认一场比赛的时间，又不想在社交平台上被剧透；或者晚上想安静地读一篇关于某项运动历史的短文，不需要被推送打扰。又或者你只是偶然对一项新运动产生了好奇，想找一个温和的起点。这些时刻，打开这个平台正好合适。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-snip">
+            <h3>常见疑问 · 很短</h3>
+            <p><strong>「这里的资讯更新快吗？」</strong> —— 常规赛事和活动信息保持同步，突发新闻类内容不算核心，但基础日程和说明通常不会滞后。</p>
+            <p style="margin-top:0.6rem;"><strong>「需要付费吗？」</strong> —— 绝大部分内容免费浏览，部分附加功能或深度整理可能设置合理门槛，但目前绝大多数功能都是开放的。</p>
+        </div>
+
+        <!-- 温和结尾 + 嵌入链接（唯一a标签，文本严格等于“完美体育”） -->
+        <div class="closing">
+            <p>如果你想直接感受这种不嘈杂、不费力的浏览体验，不妨去 <a href="https://portal-wmsports.com">完美体育</a> 看看。页面加载干净，信息排列直观，不会让你在三个页面之后忘记自己最开始想查什么。</p>
+            <p class="mild">说到底，一个好的体育内容平台，就是让你把时间花在看内容上，而不是花在找内容上。</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
